@@ -6,6 +6,8 @@ module.exports = app => {
 
   
   //////////////////////////////  GOOGLE  //////////////////////////////////////////
+  app.get("/nor/google_account/active", customers.get_active_google);
+  app.get("/van/google_account/active", customers.get_active_google_van);
 
   app.get("/google_account/active", customers.get_active_google);
   app.get("/google_account_van/active", customers.get_active_google_van);
