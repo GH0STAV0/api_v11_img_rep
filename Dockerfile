@@ -62,9 +62,9 @@ COPY my.cnf /etc/mysql/conf.d/my.cnf
 COPY docker-entrypoint.sh /usr/local/bin/
 RUN ln -s usr/local/bin/docker-entrypoint.sh /entrypoint.sh # backwards compat
 
-EXPOSE 3306 33060
+#EXPOSE 3306 33060
 
-RUN uname -a
+# RUN uname -a
 
 # Create app directory
 WORKDIR /usr/src/app
