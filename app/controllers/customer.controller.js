@@ -227,6 +227,23 @@ exports.active_gc_acc_van = (req, res) => {
       message: "gc_acc : Content can not be empty!"
     });
   }
+  Customer.updateById6(
+    req.params.customerId8,
+    new Customer(req.body),
+    (err, data) => {
+      if (err) {
+        if (err.kind === "not_found") {
+          res.status(404).send({
+            message: `update_gc_acc_van : Not found Customer with id ${req.params.customerId8}.`
+          });
+        } else {
+          res.status(500).send({
+            message: "update_gc_acc_van : Error updating Customer with id " + req.params.customerId8
+          });
+        }
+      } else console.log("CLEAN VANISH");
+    }
+  );
 
   console.log(req.body);
 
@@ -260,7 +277,28 @@ exports.active_gc_acc = (req, res) => {
     });
   }
 
+  Customer.updateById4(
+    req.params.customerId5,
+    new Customer(req.body),
+    (err, data) => {
+      if (err) {
+        if (err.kind === "not_found") {
+          res.status(404).send({
+            message: `update_gc_acc : Not found Customer with id ${req.params.customerId5}.`
+          });
+        } else {
+          res.status(500).send({
+            message: "update_gc_acc : Error updating Customer with id " + req.params.customerId5
+          });
+        }
+      } else  console.log("CLEAN ");
+    }
+  );
+
+
+
   console.log(req.body);
+
 
   Customer.updateById5(
     req.params.customerId5,

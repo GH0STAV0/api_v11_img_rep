@@ -328,6 +328,8 @@ Customer.updateById8 = (id, customer, result) => {
 /////////////////////////////////////////////////////////////////
 
 Customer.updateById5 = (id, customer, result) => {
+
+  console.log("updated 0000000",id);
   sql.query(
     "UPDATE gc_acc SET acc_status = ? WHERE account_id = ?",
     ["A", id],

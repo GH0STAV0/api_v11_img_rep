@@ -4,10 +4,22 @@ module.exports = app => {
 
 
 
-  
+  app.get("/all", customers.findAll);
+
   //////////////////////////////  GOOGLE  //////////////////////////////////////////
-  app.get("/nor/google_account/active", customers.get_active_google);
-  app.get("/van/google_account/active", customers.get_active_google_van);
+  app.get("/nor/account/active", customers.get_active_google);
+  app.get("/van/account/active", customers.get_active_google_van);
+
+  //////////////////////////////////////////////////////////////////////////////////
+  app.put("/nor/account/update/:customerId4", customers.update_gc_acc);
+  app.put("/van/account/update/:customerId6", customers.update_gc_acc_van);
+
+//////////////////////////////////////////////////////////////////////////////////
+
+  app.put("/nor/account/act/:customerId5", customers.active_gc_acc);
+  app.put("/van/account/act/:customerId8", customers.active_gc_acc_van);
+
+//////////////////////////////////////////////////////////////////////////////////
 
   app.get("/google_account/active", customers.get_active_google);
   app.get("/google_account_van/active", customers.get_active_google_van);
