@@ -84,7 +84,7 @@ RUN find /usr/src/app/ -name '*.sh' -exec chmod a+x {} +
 
 
 # EXPOSE 3000 3306 8000
-EXPOSE 8000
+EXPOSE 3000
 
 ENTRYPOINT ["docker-entrypoint.sh"]
 
