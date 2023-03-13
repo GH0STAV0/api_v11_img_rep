@@ -277,7 +277,7 @@ exports.active_gc_acc = (req, res) => {
     });
   }
 
-  Customer.updateById4(
+/*  Customer.updateById4(
     req.params.customerId5,
     new Customer(req.body),
     (err, data) => {
@@ -293,7 +293,7 @@ exports.active_gc_acc = (req, res) => {
         }
       } else  console.log("CLEAN ");
     }
-  );
+  );*/
 
 
 
