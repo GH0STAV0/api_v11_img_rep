@@ -385,8 +385,8 @@ Customer.updateById6 = (id, customer, result) => {
 
 Customer.updateById4 = (id, customer, result) => {
   sql.query(
-    "UPDATE gc_acc SET acc_status = ? WHERE `gc_account_type` = 'nord'",
-    ["NA", id],
+    "UPDATE gc_acc SET acc_status = ? WHERE `gc_account_type` = ?",
+    ["NA", 'nord'],
     (err, res) => {
       if (err) {
         console.log("error: ", err);
