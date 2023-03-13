@@ -244,6 +244,46 @@ Customer.findById_van = (customerId, result) => {
 };
 
 
+Customer.findById_last_van = (customerId, result) => {
+  sql.query(`SELECT * FROM van_active_gc WHERE id = 0`, (err, res) => {
+    console.log("ok get last van ");
+    if (err) {
+      console.log("error: ", err);
+      result(err, null);
+      return;
+    }
+
+    if (res.length) {
+      console.log("found customer van : ", res[0]);
+      result(null, res[0]);
+      return;
+    }
+
+    // not found Customer with the id
+    result({ kind: "not_found" }, null);
+  });
+};
+
+Customer.findById_last_nord = (customerId, result) => {
+  sql.query(`SELECT * FROM nor_active_gc WHERE id = 0`, (err, res) => {
+    console.log("ok get last ");
+    if (err) {
+      console.log("error: ", err);
+      result(err, null);
+      return;
+    }
+
+    if (res.length) {
+      console.log("found customer: ", res[0]);
+      result(null, res[0]);
+      return;
+    }
+
+    // not found Customer with the id
+    result({ kind: "not_found" }, null);
+  });
+};
+
 Customer.findById_nord = (customerId, result) => {
   sql.query(`SELECT * FROM nord_list2 WHERE id = ${customerId}`, (err, res) => {
     if (err) {
@@ -408,7 +448,60 @@ Customer.updateById4 = (id, customer, result) => {
 
 
 /////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
 
+Customer.updateById40 = (id, customer, result) => {
+  sql.query(
+    "UPDATE van_active_gc SET compt_van = ? WHERE `id` = ?",
+    [id, 0],
+    (err, res) => {
+      if (err) {
+        console.log("error: ", err);
+        result(null, err);
+        return;
+      }
+
+      if (res.affectedRows == 0) {
+        // not found Customer with the id
+        result({ kind: "gc_acc not_found" }, null);
+        return;
+      }
+
+      console.log("updated gc_acc acc_status: ", { id: id });
+      result(null, { id: id });
+    }
+  );
+};
+
+
+/////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+
+Customer.updateById20 = (id, customer, result) => {
+  sql.query(
+    "UPDATE nor_active_gc SET compt_nord = ? WHERE `id` = ?",
+    [id, 0],
+    (err, res) => {
+      if (err) {
+        console.log("error: ", err);
+        result(null, err);
+        return;
+      }
+
+      if (res.affectedRows == 0) {
+        // not found Customer with the id
+        result({ kind: "gc_acc not_found" }, null);
+        return;
+      }
+
+      console.log("updated gc_acc acc_status: ", { id: id });
+      result(null, { id: id });
+    }
+  );
+};
+
+
+/////////////////////////////////////////////////////////////////
 Customer.updateById10 = (id, customer, result) => {
   sql.query(
     "UPDATE pure_tbl SET used = ? WHERE id = ?",

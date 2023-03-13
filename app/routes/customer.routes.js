@@ -6,6 +6,13 @@ module.exports = app => {
 
   app.get("/all", customers.findAll);
 
+  app.put("/nor/update/last/:customerId20", customers.last_update_gc_acc);
+  app.get("/nor/account/last_active/:customerId30", customers.get_last_update_gc_acc);
+
+  app.put("/van/update/last/:customerId40", customers.last_update_gc_acc_van);
+  app.get("/van/account/last_active/:customerId50", customers.get_last_update_gc_acc_van);
+
+
   //////////////////////////////  GOOGLE  //////////////////////////////////////////
   app.get("/nor/account/active", customers.get_active_google);
   app.get("/van/account/active", customers.get_active_google_van);

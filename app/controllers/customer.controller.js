@@ -202,6 +202,7 @@ exports.findOne_van = (req, res) => {
   });
 };
 
+
 /////////////////////////////////////////////////////////////////////////////////////////////////:
 
 exports.findOne_nord = (req, res) => {
@@ -214,6 +215,44 @@ exports.findOne_nord = (req, res) => {
       } else {
         res.status(500).send({
           message: "Error retrieving Customer with id " + req.params.customerId
+        });
+      }
+    } else res.send(data);
+  });
+};
+/////////////////////////////////////////////////////////////////////////////////////////////////:
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////:
+
+exports.get_last_update_gc_acc = (req, res) => {
+  Customer.findById_last_nord(req.params.customerId30, (err, data) => {
+    if (err) {
+      if (err.kind === "not_found") {
+        res.status(404).send({
+          message: `Not found Customer with id ${req.params.customerId30}.`
+        });
+      } else {
+        res.status(500).send({
+          message: "Error retrieving Customer with id " + req.params.customerId30
+        });
+      }
+    } else res.send(data);
+  });
+};
+/////////////////////////////////////////////////////////////////////////////////////////////////:
+
+exports.get_last_update_gc_acc_van = (req, res) => {
+  Customer.findById_last_van(req.params.customerId50, (err, data) => {
+    if (err) {
+      if (err.kind === "not_found") {
+        res.status(404).send({
+          message: `Not found Customer with id ${req.params.customerId50}.`
+        });
+      } else {
+        res.status(500).send({
+          message: "Error retrieving Customer with id " + req.params.customerId50
         });
       }
     } else res.send(data);
@@ -354,6 +393,69 @@ exports.update_gc_acc = (req, res) => {
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////:
+exports.last_update_gc_acc_van = (req, res) => {
+  // Validate Request
+  if (!req.body) {
+    res.status(400).send({
+      message: "last gc_acc active van: Content can not be empty!"
+    });
+  }
+
+  console.log(req.body);
+
+  Customer.updateById40(
+    req.params.customerId40,
+    new Customer(req.body),
+    (err, data) => {
+      if (err) {
+        if (err.kind === "not_found") {
+          res.status(404).send({
+            message: `update_gc_acc van : Not found Customer with id ${req.params.customerId20}.`
+          });
+        } else {
+          res.status(500).send({
+            message: "update_gc_acc van : Error updating Customer with id " + req.params.customerId20
+          });
+        }
+      } else res.send(data);
+    }
+  );
+};
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////:
+
+/////////////////////////////////////////////////////////////////////////////////////////////////:
+exports.last_update_gc_acc = (req, res) => {
+  // Validate Request
+  if (!req.body) {
+    res.status(400).send({
+      message: "last gc_acc : Content can not be empty!"
+    });
+  }
+
+  console.log(req.body);
+
+  Customer.updateById20(
+    req.params.customerId20,
+    new Customer(req.body),
+    (err, data) => {
+      if (err) {
+        if (err.kind === "not_found") {
+          res.status(404).send({
+            message: `update_gc_acc : Not found Customer with id ${req.params.customerId20}.`
+          });
+        } else {
+          res.status(500).send({
+            message: "update_gc_acc : Error updating Customer with id " + req.params.customerId20
+          });
+        }
+      } else res.send(data);
+    }
+  );
+};
+
+
 /////////////////////////////////////////////////////////////////////////////////////////////////:
 exports.update_gc_acc_van = (req, res) => {
   // Validate Request
