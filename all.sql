@@ -64,7 +64,7 @@ CREATE TABLE `gc_acc` (
 
 LOCK TABLES `gc_acc` WRITE;
 /*!40000 ALTER TABLE `gc_acc` DISABLE KEYS */;
-INSERT INTO `gc_acc` VALUES (1,'vanishmainxxone','van','A','2022-04-28','2022-04-28'),(2,'vanishxmainxtow','van','NA','2022-04-28','2022-04-28'),(3,'vanishxmainxthree','van','NA','2022-04-28','2022-04-28'),(4,'vanishxmainfour','van','NA','2022-04-28','2022-04-28'),(5,'danayxmaindanay','nord','NA','2022-04-28','2022-04-20'),(8,'0ct0pusx01xandrow','nord','NA','2022-04-28','2022-04-20'),(9,'bigoctbig','nord','A','2022-04-28','2022-04-20'),(10,'cikox0xmain','nord','NA','2022-04-28','2022-04-20');
+INSERT INTO `gc_acc` VALUES (1,'vanvanxone','van','A','2022-04-28','2022-04-28'),(2,'vanishxmainxtow','van','NA','2022-04-28','2022-04-28'),(3,'vanishxmainxthree','van','NA','2022-04-28','2022-04-28'),(4,'vanishxmainfour','van','NA','2022-04-28','2022-04-28'),(5,'xxawelmoh','nord','A','2022-04-28','2022-04-20'),(8,'0ct0pusx01xandrow','nord','NA','2022-04-28','2022-04-20'),(9,'bigoctbig','nord','NA','2022-04-28','2022-04-20'),(10,'cikox0xmain','nord','NA','2022-04-28','2022-04-20');
 /*!40000 ALTER TABLE `gc_acc` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -87,7 +87,7 @@ CREATE TABLE `nor_active_gc` (
 
 LOCK TABLES `nor_active_gc` WRITE;
 /*!40000 ALTER TABLE `nor_active_gc` DISABLE KEYS */;
-INSERT INTO `nor_active_gc` VALUES (0,'cikox0xmain');
+INSERT INTO `nor_active_gc` VALUES (0,'xxawelmoh');
 /*!40000 ALTER TABLE `nor_active_gc` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -161,7 +161,7 @@ CREATE TABLE `van_active_gc` (
 
 LOCK TABLES `van_active_gc` WRITE;
 /*!40000 ALTER TABLE `van_active_gc` DISABLE KEYS */;
-INSERT INTO `van_active_gc` VALUES (0,'vanishxmainxtow');
+INSERT INTO `van_active_gc` VALUES (0,'vanvanxone');
 /*!40000 ALTER TABLE `van_active_gc` ENABLE KEYS */;
 UNLOCK TABLES;
 
